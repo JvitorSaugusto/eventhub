@@ -49,4 +49,14 @@ class User extends Authenticatable
             'status' => 'boolean',
         ];
     }
+
+    public function registrations()
+    {
+        return $this->hasMany(Registration::class);
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
 }
